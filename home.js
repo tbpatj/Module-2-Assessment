@@ -22,7 +22,8 @@
 */
 
 //CODE HERE
-
+let greetUser = (username) => `Welcome back, ${username}`;
+console.log(greetUser("Andrew"));
 
 
 
@@ -50,7 +51,9 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
+function canWeDeliver(zipCode){
+    return deliveryAreaZipCodes.includes(zipCode);
+}
 
 
 /* 
@@ -71,8 +74,18 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
-
-
+let canWeDeliverTwo = (zipCode) => {
+    filteredZips = deliveryAreaZipCodes.filter( (element, index) => {
+        if(element === zipCode){
+            return element;
+        }
+    });
+    if(filteredZips.length >= 1){
+        return true;
+    }
+    return false;
+}
+console.log(canWeDeliver(85203));
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -107,8 +120,8 @@ const deals = [
 */
 
 //CODE HERE
-
-
+deals[0].title = deals[0].title.replace("15","10");
+console.log(deals);
 
 /*
     The restaurant is going to continue its
@@ -124,3 +137,4 @@ const deals = [
 */
 
 //CODE HERE
+deals[1].title = deals[1].title.replace("March","April");

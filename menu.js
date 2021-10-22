@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+let pizza = {
+    name: "Pepperoni",
+    price: 10,
+    category: "entree",
+    popularity: 5,
+    rating: 1,
+    tags: ["gluten","greasy","heart clogging","protein"]
+};
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity);
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,8 @@
 */
 
 //CODE HERE
-
+let {price} = pizza;
+console.log(price);
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+let {category} = pizza;
+console.log(category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +97,48 @@
 */
 
 //CODE HERE
-
+let foodArr = [
+    {
+        name: "Pepperoni",
+        price: 10,
+        category: "entree",
+        popularity: 5,
+        rating: 4,
+        tags: ["gluten","greasy","heart clogging","protein","carbs"]
+    },
+    {
+        name: "Cheese",
+        price: 9,
+        category: "entree",
+        popularity: 4,
+        rating: 3,
+        tags: ["gluten","greasy","heart clogging","protein","carbs"]
+    },
+    {
+        name: "Breadstick",
+        price: 2,
+        category: "appetizer",
+        popularity: 4,
+        rating: 2,
+        tags: ["gluten","bread","carbs","comes with sauce"]
+    },
+    {
+        name: "Calzone",
+        price: 10,
+        category: "entree",
+        popularity: 5,
+        rating: 1,
+        tags: ["gluten","saucy","carbs","protein"]
+    },
+    {
+        name: "Salad",
+        price: 8,
+        category: "appetizer",
+        popularity: 4,
+        rating: 4,
+        tags: ["gluten-free","healthy","greens","vegan"]
+    },
+];
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,7 +155,14 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+
+
+const filteredFood = foodArr.filter( (element, index) => {
+    if(element.tags.includes("greens")){
+        return element;
+    }
+});
+console.log(filteredFood);
 
 
 
@@ -149,7 +206,26 @@
 */
 
 //CODE HERE
-
+function filterByProperty(property, number, type){
+    //filter the array
+    let filteredArray = foodArr.filter( (element) => {
+        //if the type is above filter accordingly
+        if(type === 'above'){
+            if(element[property] > number){
+                return element;
+            }
+        } else if(type === 'below'){
+            //else do the opposite
+            if(element[property] < number){
+                return element;
+            }
+        } else {
+            return [];
+        }
+    });//end of filtered array declaration
+    
+    return filteredArray;
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +235,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('rating',2,'above'));
